@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Boggle Game</title>
+</head>
+<body>
+    <table>
+        {% for row in board %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <div id="high-score-display">
+         <strong>Highest Score:</strong> {{ highscore }}
+    </div> 
+    <div id="plays-display">
+        <strong>Games Played:</strong> {{ plays }}
+   </div>    
+    <div id="score-display">
+        Current Score: <span id="score">0</span>
+    </div>
+    <div id="timer-display">
+        Time left: <span id="timer">
+            60</span> seconds
+        </div>
+
+    <form id="guess-form">
+        <input type="text" id="guess-input" placeholder="Enter your guess" required>
+        <button type="submit">Submit Guess</button>
+    </form>
+
+    <ul id="valid-guesses">
+        {% for guess in session.get('valid_guesses', []) %}
+            <li>{{ guess }}</li>
+        {% endfor %}
+    </ul>
+
+    <div id="game-end-message" style="display: none;">
+        <p>Thanks for playing!</p>
+        <button onclick="location.reload()">New Game</button>
+    </div>
+
+    <!-- Including the axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <!-- Linking to the external JS file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

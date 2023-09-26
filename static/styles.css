@@ -1,83 +1,68 @@
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    margin: 40px;
+    text-align: center;
+    background-color: #EAF7FE; /* Very light blue */
 }
 
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+table {
+    width: auto;  /* Adjusted to auto to fit content */
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 1px solid #B3D4E9; /* Deeper blue for table border */
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+td {
+    width: 100px; /* Setting both width and height to the same value */
+    height: 100px;
+    border: 1px solid black;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #B3D4E9; /* Deeper blue for table cell */
+    color: rgb(36, 36, 36); /* Dark color for letters */
+    padding: 0; /* Ensuring no additional padding */
 }
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+#guess-form {
+    margin-top: 20px;
 }
 
-.tile {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: transform 0.2s;
+#valid-guesses {
+    list-style-type: none;
+    padding: 0;
 }
 
-.tile:hover {
-    transform: scale(1.1);
+#game-end-message button {
+    margin-top: 20px;
 }
 
-button {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 15px;
+button, input[type="submit"] {
+    background-color: #FFD700; /* Deep gold for buttons */
     border: none;
-    border-radius: 5px;
+    color: rgb(36, 36, 36);
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-button:hover {
-    background-color: #0056b3;
+button:hover, input[type="submit"]:hover {
+    background-color: #FFC000; /* Slightly deeper gold for button hover */
 }
 
-/* Animation for the board appearance */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#score-display, #timer-display, #high-score-display, #plays-display {
+    color: black;
 }
 
-.container {
-    animation: slideIn 0.5s forwards;
+#guess-input {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#game-end-message {
+    color: rgb(37, 37, 37);
+}
+
+#valid-guesses li {
+    padding: 5px 0;
 }

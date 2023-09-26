@@ -20,15 +20,38 @@ class Boggle():
         return words
 
     def make_board(self):
-        """Make and return a random boggle board."""
+        """Make and return a random boggle board with a minimum of 3 vowels."""
 
+        VOWELS = "AEIOU"
+        CONSONANTS = "BCDFGHJKLMNPQRSTVWXYZ"
+        
         board = []
 
         for y in range(5):
             row = [choice(string.ascii_uppercase) for i in range(5)]
             board.append(row)
 
+        # Count the number of vowels on the board
+        vowel_count = sum(1 for row in board for letter in row if letter in VOWELS)
+
+        # Ensure there are at least 3 vowels on the board
+        while vowel_count < 3:
+            for row in board:
+                for i in range(5):
+                    if row[i] not in VOWELS and vowel_count < 3:
+                        row[i] = choice(VOWELS)
+                        vowel_count += 1
+        
+        # Ensure there are at most 5 vowels on the board
+        while vowel_count > 5:
+             for row in board:
+                for i in range(5):
+                    if row[i] in VOWELS and vowel_count > 5:
+                        row[i] = choice(CONSONANTS)
+                        vowel_count -= 1
+                        
         return board
+
 
     def check_valid_word(self, board, word):
         """Check if a word is a valid word in the dictionary and/or the boggle board"""

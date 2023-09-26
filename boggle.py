@@ -1,5 +1,3 @@
-"""Utilities related to Boggle game."""
-
 from random import choice
 import string
 
@@ -9,8 +7,7 @@ class Boggle():
     def __init__(self):
 
         self.words = self.read_dict("words.txt")
-        print(self.words[:100])  # Print the first 100 words from the dictionary.
-
+        print(self.words[:100])  # Print the first 100 words from the dictionary to ensure functionality on the backend
     def read_dict(self, dict_path):
         """Read and return all words in dictionary."""
 
@@ -49,7 +46,7 @@ class Boggle():
                     if row[i] in VOWELS and vowel_count > 5:
                         row[i] = choice(CONSONANTS)
                         vowel_count -= 1
-                        
+
         return board
 
 

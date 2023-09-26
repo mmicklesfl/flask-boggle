@@ -33,7 +33,7 @@ def end_game():
         session["highscore"] = score
         new_record = True
 
-    # For debugging purposes, you can print the values here
+    # For debugging purposes
     print(f"High score: {session['highscore']}")
     print(f"Number of plays: {session['plays']}")
 

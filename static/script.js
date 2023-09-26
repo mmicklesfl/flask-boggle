@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!timerDisplay) return;
         else {
             timeLeft -= 1;  // Decrement the timer by 1 second
-            timerDisplay.textContent = `${timeLeft}`;  // Update the displayed timer
+            timerDisplay.textContent = `${timeLeft}`;  // Update the displayed timer on active game
         }
         
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            if (form) form.style.display = 'none';  // Hide the guess form
+            if (form) form.style.display = 'none';  // Hide the guess form when game ends
             if (gameEndMessage) gameEndMessage.style.display = 'block';  // Show the game end message
             
             // Dispatch the gameEnd event

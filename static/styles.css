@@ -21,7 +21,7 @@ td {
     vertical-align: middle;
     background-color: #B3D4E9; 
     color: rgb(36, 36, 36); 
-    padding: 0; /* Ensuring no additional padding */
+    padding: 0; 
 }
 
 #guess-form {
